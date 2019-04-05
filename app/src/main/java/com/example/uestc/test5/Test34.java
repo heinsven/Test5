@@ -39,10 +39,12 @@ public class Test34 extends AppCompatActivity implements View.OnClickListener {
     }
 
     public MediaPlayer initMediaPlayer(Activity context, int rawId) {
+        //为activity注册的默认音频通道
         context.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         final MediaPlayer mediaPlayer = new MediaPlayer();
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);//指定播放的声音通道为 STREAM_MUSIC
+        //当播放完毕一次后，重新指向流文件的开头，以准备下次播放
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -56,7 +58,7 @@ public class Test34 extends AppCompatActivity implements View.OnClickListener {
                 return true;
             }
         });
-
+        //设定要播放的音乐文件的 数据源，并准备播放
         AssetFileDescriptor file;
         if (rawId == 0) {
             file = context.getResources().openRawResourceFd(R.raw.beep);
