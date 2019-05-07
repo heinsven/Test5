@@ -47,5 +47,23 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btn_video_view = findViewById(R.id.video_view);
+        btn_video_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VideoViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btn_media_controller = findViewById(R.id.media_controller);
+        btn_media_controller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MediaControllerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

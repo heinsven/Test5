@@ -150,21 +150,15 @@ public class Test5 extends AppCompatActivity {
                 if (null != fos) {
                     while (isRecording) {
                         int read = mAudioRecord.read(data, 0, bufferSize);
-                        //返回正确时才读取数据
                         if (AudioRecord.ERROR_INVALID_OPERATION != read) {
                             try {
                                 fos.write(data);
                             } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
+                                e.printStackTrace(); } } }
                     try {
                         fos.close();
                     } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+                        e.printStackTrace(); } }
             }
         }).start();
     }
